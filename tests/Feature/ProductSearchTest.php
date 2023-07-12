@@ -77,7 +77,7 @@ class ProductSearchTest extends TestCase
         $response = $this->getJson('/api/product/search?term=Variant');
 
         $response->assertStatus(200)
-            ->assertJsonCount(2, 'data')
+            ->assertJsonCount(3, 'data')
             ->assertJson([
                 'data' => [
                     $product1->toArray(),
