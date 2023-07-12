@@ -17,7 +17,7 @@ class ProductSearchTest extends TestCase
         $product2 = Product::factory()->create(['name' => 'Test Product 2']);
         $product3 = Product::factory()->create(['name' => 'Another Product']);
 
-        $response = $this->getJson('/api/products/search?term=Test');
+        $response = $this->getJson('/api/product/search?term=Test');
 
         $response->assertStatus(200)
             ->assertJsonCount(2, 'data')
@@ -35,7 +35,7 @@ class ProductSearchTest extends TestCase
         $product2 = Product::factory()->create(['description' => 'Another test product']);
         $product3 = Product::factory()->create(['description' => 'A different product']);
 
-        $response = $this->getJson('/api/products/search?term=test');
+        $response = $this->getJson('/api/product/search?term=test');
 
         $response->assertStatus(200)
             ->assertJsonCount(2, 'data')
@@ -74,7 +74,7 @@ class ProductSearchTest extends TestCase
             'stock_count' => 8,
         ]);
 
-        $response = $this->getJson('/api/products/search?term=Variant');
+        $response = $this->getJson('/api/product/search?term=Variant');
 
         $response->assertStatus(200)
             ->assertJsonCount(2, 'data')

@@ -23,5 +23,5 @@ use App\Http\Controllers\VariantController;
 
 Route::apiResource('products', ProductController::class);
 Route::apiResource('products.variants', VariantController::class);
-Route::get('products/search', [ProductController::class, 'search']);
+Route::get('product/search', [ProductController::class, 'search']);
 
